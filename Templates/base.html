@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>TV STATION</title>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid ">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="">TV STATION</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="../../service">Services</a></li>
+        <li><a href="../../pricing">Pricing</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="../../book">Booking</a></li>
+          {% endif %}
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+         <li><a href="../"> {{user.first_name}}</a></li>
+          <li><a href="../user/logout"> Logout</a></li>
+
+          {% else %}
+            <li><a href="../user/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="../user/register"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+
+          {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container filled">
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+      <div class="item active">
+        <img src="{% static 'ca1.jpg' %}" alt="Los Angeles" >
+
+      </div>
+
+      <div class="item">
+        <img src="{% static 'ca2.jpg' %}" alt="Chicago" >
+
+      </div>
+
+      <div class="item">
+        <img src="{% static 'ca3.jpg' %}" alt="New York" >
+
+      </div>
+
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+
+
+{% block content %}
+
+
+<div class="container gallery">
+    <h1 class="text-center text-danger">Gallery</h1>
+    <br>
+	<div class="row">
+		<div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="{% static 'gallary/lg.jpg' %}" /></div>
+        <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="{% static 'gallary/sam.jpg' %}" /></div>
+        <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="{% static 'gallary/sony.jpg' %}" /></div>
+        <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="{% static 'gallary/gal1.jpg' %}" /></div>
+
+        <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="{% static 'gallary/gal2.jpg' %}" /></div>
+        <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="{% static 'gallary/gal3.jpg' %}" /></div>
+        <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="{% static 'gallary/gal4.jpg' %}" /></div>
+        <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="{% static 'gallary/gal5.jpg' %}" /></div>
+
+        <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="{% static 'gallary/gal6.jpg' %}" /></div>
+        <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="{% static 'gallary/gal7.jpg' %}" /></div>
+        <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="{% static 'gallary/gal8.jpg' %}" /></div>
+        <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="{% static 'gallary/gal9.png' %}" /></div>
+
+    </div>
+</div>
+
+<div class="jumbotron jumbotron-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12">
+                <h1 class="h1">
+                    Contact us <small>Feel free to contact us</small></h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="well well-sm">
+                <form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">
+                                Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">
+                                Subject</label>
+                            <select id="subject" name="subject" class="form-control" required="required">
+                                <option value="na" selected="">Choose One:</option>
+                                <option value="service">General Customer Service</option>
+                                <option value="suggestions">Suggestions</option>
+                                <option value="product">Product Support</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Message</label>
+                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+                                placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                            Send Message</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <form>
+            <legend><span class="glyphicon glyphicon-globe"></span> Our office</legend>
+            <address>
+                <strong>TV Station</strong><br>
+                Bode street.<br>
+                Bhaktapur, Nepal<br>
+                <abbr title="Phone">
+                    P:</abbr>
+                (123) 748-7825
+            </address>
+            <address>
+                <strong>Jenish Shrestha</strong><br>
+                <a href="">jenish@managing@mail.com</a>
+            </address>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+		<footer class="footer-distributed">
+
+		<div class="footer-left">
+
+		<h3>TV<span>Station</span></h3>
+
+		<p class="footer-links">
+		<a href="/">Home</a>
+	·
+		<a href="../../service">Services</a>
+	·
+		<a href="../../pricing">Pricing</a>
+	·
+		<a href="">Booking</a>
+	·
+
+		</p>
+
+		<p class="footer-company-name">tvstation &copy; 2017</p>
+		</div>
+
+		<div class="footer-center">
+
+		<div>
+		<i class="fa fa-map-marker"></i>
+		<p><span>Bode Street29</span> Bhaktpur, Nepal</p>
+		</div>
+
+		<div>
+		<i class="fa fa-phone"></i>
+		<p>+01 4422515 </p>
+            <p>+977 9726152415</p>
+		</div>
+
+		<div>
+		<i class="fa fa-envelope"></i>
+		<p><a href="">contact@tvFreaks.com</a></p>
+		</div>
+
+		</div>
+
+		<div class="footer-right">
+
+		<p class="footer-company-about">
+		<span>About the company</span>
+	TV station is a leading company in Business of Televisions. It is serving the customers since last 2 years.
+		</p>
+
+		</div>
+
+		</footer>
+
+
+</body>
+</html>

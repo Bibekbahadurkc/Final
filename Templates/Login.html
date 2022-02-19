@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        <h1>User Login</h1>
+        <form action="login" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" class="form-control" name="username" placeholder="Username"/>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Password"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="form-control" value="Log In"/>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-2"></div>
+</div>
+
+<script>
+{% for message in messages %}
+    alert('{{ message }}');
+
+    {% endfor %}
+</script>
+{% endblock %}

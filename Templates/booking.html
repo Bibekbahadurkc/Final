@@ -1,0 +1,67 @@
+ {% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+  <h2>Booking Table</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Brand Name</th>
+        <th>Date</th>
+        <th>Edit</th>
+        <th>Delete</th>
+
+      </tr>
+    </thead>
+    <tbody>
+    {% for book in user_book %}
+    {% if book.user == current_user %}
+      <tr>
+        <td>{{  book.priced.id }}</td>
+        <td>{{ book.priced.name }}</td>
+        <td>{{ book.date }}</td>
+        <td><a href="" class="btn btn-info" data-toggle="modal" data-target="#edit{{ book.id }}">UPDATE</a></td>
+        <td><a href="../book/delete/{{ book.id }}" class="btn btn-danger">CANCEL</a></td>
+      </tr>
+
+    <div id="edit{{ book.id }}" class="modal fade bd-example-modal-sm" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+   <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Update Booking</h4>
+      </div>
+   <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" class="form-control" name="ID" value="{{ book.id }}"/>
+            </div>
+            <div class="form-group">
+                <select name="items" class="form-control">
+                    {% for pr in pricing %}
+                    <option value="{{ pr.id }}" {% if book.priced.id == pr.id %}selected {% endif %}>{{ pr.name }}</option>
+                     {% endfor %}
+                </select>
+
+            </div>
+            <div class="form-group">
+                <input type="submit" class="form-control btn-info" value="UPDATE"/>
+            </div>
+        </form>
+   </div>
+    </div>
+    </div>
+  {% endif %}
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+{% endblock %}
+
+
